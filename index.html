@@ -7,6 +7,25 @@
      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+    <header class="container mx-auto pt-[60px] pb-[30px]">
+        <h1 class="text-4xl font-bold text-[#002c5cFF]">Job Application Tracker</h1>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-[16px] p-[20px] ">
+            <div>
+                <p>Total</p>
+                <h2 id="total" class="text-2xl font-bold">8</h2>
+            </div>
+            <div class="">
+                <p>Interview</p>
+                <p id="interviewCount" class="text-2xl font-bold text-green-800">0</p>
+            </div>
+            <div class="">
+                <p>Rejected</p>
+                <p id="rejectedCount" class="text-2xl font-bold text-red-500">0</p>
+            </div>
+        </div>
+    </header>
+
+    
     
 </body>
 </html>
