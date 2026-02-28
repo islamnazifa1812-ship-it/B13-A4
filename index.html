@@ -12,17 +12,18 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-[16px] p-[20px] ">
             <div>
                 <p>Total</p>
-                <h2 id="total" class="text-2xl font-bold">8</h2>
+                <h2 id="stat-total" class="text-2xl font-bold">0</h2>
             </div>
             <div class="">
                 <p>Interview</p>
-                <p id="interviewCount" class="text-2xl font-bold text-green-800">0</p>
+                <p id="stat-interview" class="text-2xl font-bold text-green-800">0</p>
             </div>
             <div class="">
                 <p>Rejected</p>
-                <p id="rejectedCount" class="text-2xl font-bold text-red-500">0</p>
+                <p id="stat-reject" class="text-2xl font-bold text-red-500">0</p>
             </div>
         </div>
+        </header>
 
         <hr class="my-[30px] border border-solid border-[#e6e7e9FF]">
 
@@ -34,14 +35,18 @@
         </div>
 
         <!-- nav btn section -->
-         <div class="pt-[24px] pb-[16px]">
-            <button class="bg-[#3b82f6FF] text-white px-[40px] py-[8px] rounded-md font-semibold"  id="all-filter-btn">All</button>
-            <button class="px-[12px] py-[8px] rounded-md " id="interview-filter-btn">Interview</button>
-            <button class="px-[12px] py-[8px] rounded-md" id="rejected-filter-btn">Rejected</button>
+         <div class="pt-[24px] pb-[16px] gap-[6px]">
+            <button onclick="switchTab('all')"
+            class="bg-[#3b82f6FF] text-white px-[40px] py-[8px] rounded-md font-semibold"  id="tab-all">All</button>
+            <button onclick="switchTab('interview')"
+             class="px-[12px] py-[8px] rounded-md " id="tab-interview">Interview</button>
+            <button onclick="switchTab('rejected')"
+            class="px-[12px] py-[8px] rounded-md" id="tab-rejected">Rejected</button>
          </div>
 
          <!-- all card section -->
-         <section id="allCard" class="space-y-[16px] ">
+         <div id="jobs-container" class="flex flex-col gap-4">
+            <section id="all-container" class="hidden space-y-[16px] ">
             <!-- card 1 -->
              <div class="card flex justify-between border border-[#f1f2f4FF] rounded-md p-[24px]">
               <!-- left part -->
@@ -54,7 +59,7 @@
                     <p class="text-[#64748bFF] text-[14px]">Remote  •  Full-time  •  $130,000 - $175,000</p>
                 </div>
                 <div>
-                    <h4 class="text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
+                    <h4 class="status text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
                     <p class="text-[14px] text-[#323b49FF]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                 </div>
                 <div class="flex gap-[8px]">
@@ -81,7 +86,7 @@
                     <p class="text-[#64748bFF] text-[14px]">Los Angeles  CA  •  Part-time  •  $80,000 - $120,000</p>
                 </div>
                 <div>
-                    <h4 class="text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
+                    <h4 class="status text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
                     <p class="text-[14px] text-[#323b49FF]">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
                 </div>
                 <div class="flex gap-[8px]">
@@ -107,7 +112,7 @@
                     <p class="text-[#64748bFF] text-[14px]">Boston, MA  •  Full-time  •  $125,000 - $165,000</p>
                 </div>
                 <div>
-                    <h4 class="text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
+                    <h4 class="status text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
                     <p class="text-[14px] text-[#323b49FF]">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
                 </div>
                 <div class="flex gap-[8px]">
@@ -133,7 +138,7 @@
                     <p class="text-[#64748bFF] text-[14px]">Seattle, WA•  Full-time  •  $140,000 - $190,000</p>
                 </div>
                 <div>
-                    <h4 class="text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
+                    <h4 class="status text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
                     <p class="text-[14px] text-[#323b49FF]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                 </div>
                 <div class="flex gap-[8px]">
@@ -159,7 +164,7 @@
                     <p class="text-[#64748bFF] text-[14px]">Austin, TX  •  Full-time  •  $110,000 - $150,000</p>
                 </div>
                 <div>
-                    <h4 class="text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
+                    <h4 class="status text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
                     <p class="text-[14px] text-[#323b49FF]">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
                 </div>
                 <div class="flex gap-[8px]">
@@ -185,7 +190,7 @@
                     <p class="text-[#64748bFF] text-[14px]">New York, NY  •  Full-time  •  $130,000 - $170,000</p>
                 </div>
                 <div>
-                    <h4 class="text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
+                    <h4 class="status text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
                     <p class="text-[14px] text-[#323b49FF]">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
                 </div>
                 <div class="flex gap-[8px]">
@@ -211,7 +216,7 @@
                     <p class="text-[#64748bFF] text-[14px]">Remote  •  Full-time  •  $120,000 - $160,000</p>
                 </div>
                 <div>
-                    <h4 class="text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
+                    <h4 class="status text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
                     <p class="text-[14px] text-[#323b49FF]">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
                 </div>
                 <div class="flex gap-[8px]">
@@ -237,7 +242,7 @@
                     <p class="text-[#64748bFF] text-[14px]">San Francisco, CA  •  Full-time  •  $130,000 - $175,000</p>
                 </div>
                 <div>
-                    <h4 class="text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
+                    <h4 class="status text-[#002c5cFF] text-[14px] px-[12px] py-[8px] font-medium">NOT APPLIED</h4>
                     <p class="text-[14px] text-[#323b49FF]">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
                 </div>
                 <div class="flex gap-[8px]">
@@ -250,17 +255,24 @@
                     <img src="./group-1.png" alt="" class="delete-btn">
                 </div>
              </div>
-
-            
-              
-
          </section>
+         <section class="hidden" id="interview-container">Interview Section</section>
+         <section class="hidden" id="reject-container">Reject Section</section>
+         </div>
+        
+         <!-- empty state -->
+          <div id="empty-state" class="hidden flex flex-col items-center justify-center text-center py-[60px] px-[40px] gap-[20px]">
+            <img src="./jobs.png" alt="">
+            <p class="text-lg font-bold text-[#002c5cFF]">No jobs available</p>
+            <p class="text-sm text-[#64748bFF]">Check back soon for new job opportunities</p>
+          </div>
+
     </main>
 
 
 
-</header>
 
+     <script src="./script.js"></script>
     
     
 </body>
