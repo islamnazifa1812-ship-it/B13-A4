@@ -31,7 +31,7 @@
         <!-- Available Jobs Section -->
         <div class="flex justify-between">
             <h3 class="text-[20px] font-semibold text-[#002c5cFF]">Available Jobs</h3>
-            <p>8 jobs</p>
+            <span class="text-sm text-slate-500 font-medium"><span id="available">8</span> jobs</span>
         </div>
 
         <!-- nav btn section -->
@@ -46,7 +46,7 @@
 
          <!-- all card section -->
          <div id="jobs-container" class="flex flex-col gap-4">
-            <section id="all-container" class="hidden space-y-[16px] ">
+            <section id="all-container" class="hidden space-y-[16px] grid grid-cols-2 md:grid-cols-1">
             <!-- card 1 -->
              <div class="card flex justify-between border border-[#f1f2f4FF] rounded-md p-[24px]">
               <!-- left part -->
@@ -256,8 +256,8 @@
                 </div>
              </div>
          </section>
-         <section class="hidden" id="interview-container">Interview Section</section>
-         <section class="hidden" id="reject-container">Reject Section</section>
+         <section class="hidden" id="interview-container"></section>
+         <section class="hidden" id="reject-container"></section>
          </div>
         
          <!-- empty state -->
