@@ -7,6 +7,11 @@ const interviewContainer = document.getElementById("interview-container");
 const rejectedContainer =document.getElementById("reject-container");
 const emptyState= document.getElementById("empty-state");
 
+
+
+
+
+
 function switchTab(tab){
     const tabs = ["all", "interview", "rejected"];
     currentTab = tab;
@@ -37,18 +42,18 @@ function switchTab(tab){
    if (tab === "all"){
     allContainer.classList.remove("hidden");
     if (allContainer.children.length < 1) {
-        emptyState.classList.remove(hidden);
+        emptyState.classList.remove("hidden");
     }
    }
    else if (tab === "interview"){
     interviewContainer.classList.remove("hidden");
     if (interviewContainer.children.length < 1) {
-        emptyState.classList.remove(hidden);
+        emptyState.classList.remove("hidden");
     }
    }else {
     rejectedContainer.classList.remove("hidden");
     if (rejectedContainer.children.length < 1) {
-        emptyState.classList.remove(hidden);
+        emptyState.classList.remove("hidden");
     }
    }
 }
@@ -73,11 +78,19 @@ document.getElementById("jobs-container").addEventListener("click", function(eve
     if (clickedElement.classList.contains("interview-btn")) {
         status.innerText = "Interviewed";
         interviewContainer.appendChild(card);
+        clickedElement.classList.add("interview-active");
+        
+        const rejectedBtn = card.querySelector(".rejected-btn");
+        rejectedBtn.classList.remove("rejected-active");
         updateStat();
     }
     if (clickedElement.classList.contains("rejected-btn")) {
         status.innerText = "Rejected";
         rejectedContainer.appendChild(card);
+        clickedElement.classList.add("rejected-active");
+
+        const interviewBtn = card.querySelector(".interview-btn");
+        interviewBtn.classList.remove("interview-active");
         updateStat();
     }
     if (clickedElement.classList.contains("delete-btn")) {
@@ -106,3 +119,7 @@ function updateStat() {
      }
 }
 updateStat();
+
+
+
+
